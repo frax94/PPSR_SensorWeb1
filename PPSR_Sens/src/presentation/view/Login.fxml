@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.view.LoginController">
+   <children>
+      <Text layoutX="84.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PPSR_Sensor" textAlignment="CENTER" wrappingWidth="332.99998939037323" AnchorPane.bottomAnchor="379.5546875" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="System Bold" size="50.0" />
+         </font>
+      </Text>
+      <Pane layoutX="80.0" layoutY="165.0" prefHeight="313.0" prefWidth="333.0" style="-fx-border-color: lightgray;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="147.0">
+         <children>
+            <Label layoutX="24.0" layoutY="21.0" text="Email">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email" layoutX="24.0" layoutY="55.0" prefHeight="51.0" prefWidth="286.0" promptText="exemple@mail.com">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="24.0" layoutY="129.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" layoutX="24.0" layoutY="163.0" prefHeight="51.0" prefWidth="286.0" promptText="**********">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </PasswordField>
+            <Button fx:id="loginButt" defaultButton="true" layoutX="24.0" layoutY="240.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="286.0" text="LOGIN">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="300.0" minWidth="300.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.view.ClienteStageController">
+	<left>
+		<VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="170.0" spacing="30.0" style="-fx-border-color: lightgray; -fx-border-width: 0 2 0 0;" BorderPane.alignment="CENTER">
+			<children>
+				<Button fx:id="homeButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Lista Impianti" textAlignment="CENTER" />
+				<Button fx:id="clienteButton" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Lista Impianti altro cliente" textAlignment="CENTER" />
+			</children>
+			<padding>
+				<Insets bottom="35.0" top="35.0" />
+			</padding>
+		</VBox>
+	</left>
+	<center>
+		<AnchorPane fx:id="content" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+	</center>
+</BorderPane>
