@@ -192,8 +192,8 @@ public class DaoUtente implements DAO<Utente> {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public ArrayList creaListaCodici(ResultSet res) {
-		ArrayList lista = new ArrayList();
+	public List creaListaCodici(ResultSet res) {
+		List lista = new ArrayList();
 		try {
 			while (res.next()) {
 				String codice = res.getString("Codice");
@@ -209,8 +209,8 @@ public class DaoUtente implements DAO<Utente> {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList visualizzaCodici() {
-		ArrayList ret = null;
+	public List visualizzaCodici() {
+		List ret = null;
 		ResultSet result;
 
 		try {

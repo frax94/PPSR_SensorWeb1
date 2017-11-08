@@ -57,8 +57,8 @@ public class ServizioUtenti implements CRUD<Utente> {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public ArrayList visualizzaCodici() {
-		ArrayList ret = daoUtente.visualizzaCodici();
+	public List visualizzaCodici() {
+		List ret = daoUtente.visualizzaCodici();
 		return ret;
 	}
 

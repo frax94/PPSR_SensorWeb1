@@ -1,7 +1,7 @@
 package presentation.view;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import business.entita.Utente;
 import business.servizi.ServizioUtenti;
@@ -67,7 +67,7 @@ public class CodiceClienteController {
 		codiceButton.setOnAction((event) -> {
 			ServizioUtenti su = new ServizioUtenti();
 			@SuppressWarnings("rawtypes")
-			ArrayList listaCodici = su.visualizzaCodici();
+			List listaCodici = su.visualizzaCodici();
 			String aContent = "";
 			Alert alert;
 			boolean trovato = false;
