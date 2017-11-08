@@ -27,8 +27,13 @@ public class ListaImpiantiCodiceController {
 
 	private ObservableList<coppia> tableImpiantiData = FXCollections.observableArrayList();
 
+	/**
+	 * var contenente impianto selezionato
+	 */
 	public static coppia impiantoSelezionato;
-
+    /**
+     * schermata lista codici dei sensori
+     */
 	public static final String LISTA_SENSORI_CODICE;
 
 	static {

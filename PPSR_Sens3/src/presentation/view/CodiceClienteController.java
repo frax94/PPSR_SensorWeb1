@@ -33,7 +33,13 @@ public class CodiceClienteController {
 	@FXML
 	private TextField nomeField;
 
+	/**
+	 * 
+	 */
 	public static int funzione;
+	/**
+	 * codice dell'admin
+	 */
 	public static String codiceAdmin;
 
 	private static final String LISTA_IMPIANTI_CODICE;

@@ -25,13 +25,25 @@ public class DipendenteStageController {
 	private TableView<Utente> tableDipendenti;
 	private ObservableList<Utente> tableUtentiData = FXCollections.observableArrayList();
 	private final ServizioUtenti servizio = new ServizioUtenti();
+	/**
+	 * var contenente utente selezionato
+	 */
 	public static Utente utenteSelezionato;
 
+	/**
+	 * Schermata nuovo dipendente
+	 */
 	public static final String NUOVO_DIPENDENTE;
+	/**
+	 * Schermata lista dipendenti
+	 */
 	public static final String LISTA_DIPENDENTE;
 
-	public static int funzione = 0; // 8 se elimina impianto, 9 modifica
-									// impianto
+	/**
+	 *  8 se elimina impianto, 9 modifica
+									 impianto
+	 */
+	public static int funzione = 0; 
 
 	@FXML
 	private AnchorPane content;

@@ -33,6 +33,9 @@ public class ListaImpiantiController {
 
 	private ObservableList<coppia> tableImpiantiData = FXCollections.observableArrayList();
 
+	/**
+	 * var contenente impianto selezionato
+	 */
 	public static coppia impiantoSelezionato;
 
 	static {

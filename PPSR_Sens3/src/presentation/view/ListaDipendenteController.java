@@ -41,6 +41,9 @@ public class ListaDipendenteController {
 
 	private ObservableList<Utente> tableUtentiData = FXCollections.observableArrayList();
 
+	/**
+	 * var contenente utente selezionato
+	 */
 	public static Utente utenteSelezionato;
 
 	static {

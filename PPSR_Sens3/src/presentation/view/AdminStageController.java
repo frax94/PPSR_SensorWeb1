@@ -14,13 +14,37 @@ import javafx.scene.layout.AnchorPane;
 
 public class AdminStageController {
 
+	/**
+	 * String schermata nuovo cliente
+	 */
 	public static final String NUOVO_CLIENTE;
+	/**
+	 * String schermata elimina cliente
+	 */
 	public static final String ELIMINA_CLIENTE;
+	/**
+	 * String schermata lista sensori
+	 */
 	public static final String LISTA_SENSORI;
+	/**
+	 * String schermata lista impianti
+	 */
 	public static final String LISTA_IMPIANTI;
+	/**
+	 * String schermata nuovo impianto
+	 */
 	public static final String NUOVO_IMPIANTO;
+	/**
+	 * String schermata lista clienti
+	 */
 	public static final String LISTA_CLIENTI;
+	/**
+	 * String schermata modifica impianto
+	 */
 	public static final String MODIFICA_IMPIANTO;
+	/**
+	 * String schermata aggiorna database
+	 */
 	public static final String AGGIORNA_DB;
 
 	static {
@@ -34,10 +58,12 @@ public class AdminStageController {
 		AGGIORNA_DB = "presentation/view/ListaModelli.fxml";
 
 	}
-
-	public static int funzione = 0; // 1 se mostra sensori, 2 se crea impianto,
-									// 3 se elimina impianto, 4 modifica
-									// impianto, elimina cliente 5
+    /**
+     *  1 se mostra sensori, 2 se crea impianto,
+									 3 se elimina impianto, 4 modifica
+									 impianto, elimina cliente 5
+     */
+	public static int funzione = 0; 
 
 	@FXML
 	private AnchorPane content;
