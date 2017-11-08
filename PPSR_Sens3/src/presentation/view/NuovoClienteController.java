@@ -123,31 +123,36 @@ public class NuovoClienteController {
 	}
 
 	private boolean checkNotEmpty() {
+		boolean check;
 		if (nomeField.getText().isEmpty() || cognomeField.getText().isEmpty() || emailField.getText().isEmpty()
 				|| passField.getText().isEmpty() || ripPassField.getText().isEmpty()) {
-			return false;
+			check = false;
 		} else {
-			return true;
+			check = true;
 		}
+		return check;
 	}
 
 	private boolean checkEmail() {
 		Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(emailField.getText());
-
+		boolean check;
 		if (matcher.matches()) {
-			return true;
+			check = true;
 		} else {
-			return false;
+			check = false;
 		}
+		return check;
 	}
 
 	private boolean checkPass() {
+		boolean check;
 		if (passField.getText().length() >= 4 && passField.getText().equals(ripPassField.getText())) {
-			return true;
+			check = true;
 		} else {
-			return false;
+			check = false;
 		}
+		return check;
 	}
 
 }
