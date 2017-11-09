@@ -73,117 +73,128 @@ public class ListaImpiantiController {
 		}
 
 		if (AdminStageController.funzione == 1) {
-
-			Utente utente = ServizioLogin.getUtenteLoggato();
-			if (utente.getAdmin().equals("1")) {
-				tableImpiantiData = stampaLista(servizio.visualizzaTuttiC());
-			} else {
-				tableImpiantiData = stampaLista(servizio.cercaC(utente.getID()));
-			}
-
-			tableImpianti.setItems(tableImpiantiData);
-
-			tableImpianti.setRowFactory(tv -> {
-				TableRow<coppia> row = new TableRow<>();
-				row.setOnMouseClicked(event -> {
-					if (!row.isEmpty()) {
-						coppia rowData = row.getItem();
-						impiantoSelezionato = rowData;
-						System.out.println(rowData.getI().getNome());
-						goScene(AdminStageController.LISTA_SENSORI);
-					}
-				});
-
-				return row;
-			});
+		    creazioneListaSensori();			
 		}
 
 		// MODIFICA
-		else if (AdminStageController.funzione == 4) {
+		modificaImpianto();
+		
 
-			System.out.println("impianti " + ListaClientiController.utenteSelezionato.getNome());
-			System.out.println("funzione: " + AdminStageController.funzione);
-
-			tableImpiantiData = stampaLista(servizio.cercaC(ListaClientiController.utenteSelezionato.getID()));
-
-			textImpianti.setText(ListaClientiController.utenteSelezionato.getNome() + " "
-					+ ListaClientiController.utenteSelezionato.getCognome());
-
-			tableImpianti.setItems(tableImpiantiData);
-
-			tableImpianti.setRowFactory(tv -> {
-				TableRow<coppia> row = new TableRow<>();
-				row.setOnMouseClicked(event -> {
-					if (!row.isEmpty()) {
-						coppia rowData = row.getItem();
-						impiantoSelezionato = rowData;
-						System.out.println(rowData.getI().getNome());
-						goScene(AdminStageController.MODIFICA_IMPIANTO);
-					}
-				});
-
-				return row;
-			});
-
-			// ELIMINA
-		} else if (AdminStageController.funzione == 3) {
-
-			System.out.println("impianti " + ListaClientiController.utenteSelezionato.getNome());
-			System.out.println("funzione: " + AdminStageController.funzione);
-
-			tableImpiantiData = stampaLista(servizio.cercaC(ListaClientiController.utenteSelezionato.getID()));
-
-			textImpianti.setText(ListaClientiController.utenteSelezionato.getNome() + " "
-					+ ListaClientiController.utenteSelezionato.getCognome());
-
-			tableImpianti.setItems(tableImpiantiData);
-
-			tableImpianti.setRowFactory(tv -> {
-				TableRow<coppia> row = new TableRow<>();
-				row.setOnMouseClicked(event -> {
-					if (!row.isEmpty()) {
-						coppia rowData = row.getItem();
-						impiantoSelezionato = rowData;
-						System.out.println(rowData.getI().getNome());
-
-						Alert alert = new Alert(AlertType.CONFIRMATION);
-						alert.setTitle("Avviso Eliminazione");
-						alert.setHeaderText(null);
-						alert.setContentText("Eliminare l'impianto " + impiantoSelezionato.getNomeI() + " dell'utente "
-								+ impiantoSelezionato.getNomeU() + " " + impiantoSelezionato.getCognomeU() + "?");
-
-						Optional<ButtonType> result = alert.showAndWait();
-
-						if (result.get() == ButtonType.OK) {
-							System.out.println("Elimina: " + impiantoSelezionato.getIdI());
-							boolean resQ = servizio.elimina(impiantoSelezionato.getI());
-
-							Alert alert2;
-							String aContent;
-
-							if (resQ) {
-								alert2 = new Alert(AlertType.INFORMATION);
-								aContent = "Eliminazione impianto per l'utente selezionato effettuata con successo!";
-
-							} else {
-								alert2 = new Alert(AlertType.ERROR);
-								aContent = "Eliminazione impianto fallita!";
-							}
-
-							goScene(AdminStageController.LISTA_IMPIANTI);
-
-							alert2.setTitle("Avviso Eliminazione");
-							alert2.setHeaderText(null);
-							alert2.setContentText(aContent);
-							alert2.showAndWait();
-
-						}
-					}
-				});
-
-				return row;
-			});
+	    // ELIMINA
+		eliminaImpianto();
+		
+	}
+	
+	private void creazioneListaSensori() {
+		Utente utente = ServizioLogin.getUtenteLoggato();
+		if (utente.getAdmin().equals("1")) {
+			tableImpiantiData = stampaLista(servizio.visualizzaTuttiC());
+		} else {
+			tableImpiantiData = stampaLista(servizio.cercaC(utente.getID()));
 		}
+
+		tableImpianti.setItems(tableImpiantiData);
+
+		tableImpianti.setRowFactory(tv -> {
+			TableRow<coppia> row = new TableRow<>();
+			row.setOnMouseClicked(event -> {
+				if (!row.isEmpty()) {
+					coppia rowData = row.getItem();
+					impiantoSelezionato = rowData;
+					System.out.println(rowData.getI().getNome());
+					goScene(AdminStageController.LISTA_SENSORI);
+				}
+			});
+
+			return row;
+		});
+	}
+	
+	private void modificaImpianto() {
+		 if (AdminStageController.funzione == 4) {
+				
+				System.out.println("impianti " + ListaClientiController.utenteSelezionato.getNome());
+				System.out.println("funzione: " + AdminStageController.funzione);
+
+				tableImpiantiData = stampaLista(servizio.cercaC(ListaClientiController.utenteSelezionato.getID()));
+
+				textImpianti.setText(ListaClientiController.utenteSelezionato.getNome() + " "
+						+ ListaClientiController.utenteSelezionato.getCognome());
+
+				tableImpianti.setItems(tableImpiantiData);
+
+				tableImpianti.setRowFactory(tv -> {
+					TableRow<coppia> row = new TableRow<>();
+					row.setOnMouseClicked(event -> {
+						if (!row.isEmpty()) {
+							coppia rowData = row.getItem();
+							impiantoSelezionato = rowData;
+							System.out.println(rowData.getI().getNome());
+							goScene(AdminStageController.MODIFICA_IMPIANTO);
+						}
+					});
+
+					return row;
+				});
+		 }
+	}
+	
+	
+	private void eliminaImpianto() {
+		 if (AdminStageController.funzione == 3) {
+				tableImpiantiData = stampaLista(servizio.cercaC(ListaClientiController.utenteSelezionato.getID()));
+
+				textImpianti.setText(ListaClientiController.utenteSelezionato.getNome() + " "
+						+ ListaClientiController.utenteSelezionato.getCognome());
+
+				tableImpianti.setItems(tableImpiantiData);
+
+				tableImpianti.setRowFactory(tv -> {
+					TableRow<coppia> row = new TableRow<>();
+					row.setOnMouseClicked(event -> {
+						if (!row.isEmpty()) {
+							coppia rowData = row.getItem();
+							impiantoSelezionato = rowData;
+							System.out.println(rowData.getI().getNome());
+
+							Alert alert = new Alert(AlertType.CONFIRMATION);
+							alert.setTitle("Avviso Eliminazione");
+							alert.setHeaderText(null);
+							alert.setContentText("Eliminare l'impianto " + impiantoSelezionato.getNomeI() + " dell'utente "
+									+ impiantoSelezionato.getNomeU() + " " + impiantoSelezionato.getCognomeU() + "?");
+
+							Optional<ButtonType> result = alert.showAndWait();
+
+							if (result.get() == ButtonType.OK) {
+								System.out.println("Elimina: " + impiantoSelezionato.getIdI());
+								boolean resQ = servizio.elimina(impiantoSelezionato.getI());
+
+								Alert alert2;
+								String aContent;
+
+								if (resQ) {
+									alert2 = new Alert(AlertType.INFORMATION);
+									aContent = "Eliminazione impianto per l'utente selezionato effettuata con successo!";
+
+								} else {
+									alert2 = new Alert(AlertType.ERROR);
+									aContent = "Eliminazione impianto fallita!";
+								}
+
+								goScene(AdminStageController.LISTA_IMPIANTI);
+
+								alert2.setTitle("Avviso Eliminazione");
+								alert2.setHeaderText(null);
+								alert2.setContentText(aContent);
+								alert2.showAndWait();
+
+							}
+						}
+					});
+
+					return row;
+				});
+			}
 	}
 
 	public void goScene(String scene) {
@@ -197,6 +208,8 @@ public class ListaImpiantiController {
 			//e.printStackTrace();
 		}
 	}
+	
+	
 
 	/**
 	 * Trasforma la lista in una observable list da mostrare nella tabella
