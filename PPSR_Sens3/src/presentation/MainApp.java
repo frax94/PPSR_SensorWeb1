@@ -19,8 +19,8 @@ public class MainApp extends Application {
 	private BorderPane rootLayout;
 
 	@Override
-	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;
+	public void start(Stage primeStage) {
+		this.primaryStage = primeStage;
 		this.primaryStage.setTitle("PPSR_Sensor");
 		primaryStage.setResizable(false);
 

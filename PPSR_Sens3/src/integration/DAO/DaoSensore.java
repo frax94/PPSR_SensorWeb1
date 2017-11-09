@@ -30,7 +30,7 @@ public class DaoSensore implements DAO<Sensore> {
 	public boolean inserisci(Sensore s) {
 		boolean ret = false;
 		// preparo la stringa sensore
-		String sensore = s.getModello() + data(s) + valore(s) + ora(s) + statoStringa(s);
+		String sensore = s.getModello() + data(s) + valoreSensore(s) + ora(s) + statoStringa(s);
 		try {
 			// oggetto connessione
 			Connection conn = DBConnector.getConnector().getConnessione();
@@ -80,7 +80,7 @@ public class DaoSensore implements DAO<Sensore> {
 		return str;
 	}
 
-	private String valore(Sensore s) {
+	private String valoreSensore(Sensore s) {
 		int strinTipo = 0;
 		Random rad = new Random();
 		String str = "";

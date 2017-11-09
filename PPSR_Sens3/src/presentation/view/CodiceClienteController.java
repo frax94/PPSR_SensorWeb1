@@ -13,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
+
 /**
  * 
  * @author PPSR
@@ -34,7 +35,8 @@ public class CodiceClienteController {
 	private TextField nomeField;
 
 	/**
-	 * 
+	 * passaggio del valore del pulsante cliccato impostandolo ad un valore per
+	 * avvertire che il codice è stato inserito correttamente
 	 */
 	public static int funzione;
 	/**
@@ -100,7 +102,6 @@ public class CodiceClienteController {
 
 	}
 
-	
 	public void goScene(String scene) {
 		System.out.println("Andrea Past " + scene);
 		try {
@@ -109,7 +110,7 @@ public class CodiceClienteController {
 			content.getChildren().add(newLoadedPane);
 		} catch (IOException e) {
 			System.out.println("Fallito carricamento schermata!");
-			//e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 
