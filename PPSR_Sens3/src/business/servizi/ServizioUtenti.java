@@ -1,6 +1,5 @@
 package business.servizi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import business.entita.Utente;

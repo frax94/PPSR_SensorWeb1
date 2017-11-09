@@ -55,7 +55,31 @@ public class ListaClientiController {
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void initialize() {
+		creazioneNuovoImpianto();
+		creazioneListaImpianti();
+		eliminaCliente();
+	    
 
+		
+		TableColumn<Utente, String> nomeCol = new TableColumn<Utente, String>("Nome");
+		nomeCol.setMinWidth(100);
+		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
+
+		TableColumn<Utente, String> cognomeCol = new TableColumn<Utente, String>("Cognome");
+		cognomeCol.setMinWidth(100);
+		cognomeCol.setCellValueFactory(new PropertyValueFactory<>("cognome"));
+
+		TableColumn<Utente, String> emailCol = new TableColumn<Utente, String>("Email");
+		emailCol.setMinWidth(200);
+		emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
+		tableUtentiData = stampaLista(servizio.visualizzaTutti());
+
+		tableClienti.setItems(tableUtentiData);
+		tableClienti.getColumns().addAll(nomeCol, cognomeCol, emailCol);
+
+	}
+	
+	private void creazioneNuovoImpianto() {
 		if (AdminStageController.funzione == 2) {
 			tableClienti.setRowFactory(tv -> {
 				TableRow<Utente> row = new TableRow<>();
@@ -72,8 +96,10 @@ public class ListaClientiController {
 				return row;
 			});
 		}
-
-		else if (AdminStageController.funzione == 3 || AdminStageController.funzione == 4) {
+	}
+	
+	private void creazioneListaImpianti() {
+		if (AdminStageController.funzione == 3 || AdminStageController.funzione == 4) {
 			tableClienti.setRowFactory(tv -> {
 				TableRow<Utente> row = new TableRow<>();
 				row.setOnMouseClicked(event -> {
@@ -88,9 +114,11 @@ public class ListaClientiController {
 				return row;
 			});
 		}
-
-		// elimina cliente
-		else if (AdminStageController.funzione == 5) {
+	}
+	
+	// elimina cliente
+	private void eliminaCliente() {
+		if (AdminStageController.funzione == 5) {
 			tableClienti.setRowFactory(tv -> {
 				TableRow<Utente> row = new TableRow<>();
 				row.setOnMouseClicked(event -> {
@@ -117,23 +145,6 @@ public class ListaClientiController {
 				return row;
 			});
 		}
-
-		TableColumn<Utente, String> nomeCol = new TableColumn<Utente, String>("Nome");
-		nomeCol.setMinWidth(100);
-		nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
-
-		TableColumn<Utente, String> cognomeCol = new TableColumn<Utente, String>("Cognome");
-		cognomeCol.setMinWidth(100);
-		cognomeCol.setCellValueFactory(new PropertyValueFactory<>("cognome"));
-
-		TableColumn<Utente, String> emailCol = new TableColumn<Utente, String>("Email");
-		emailCol.setMinWidth(200);
-		emailCol.setCellValueFactory(new PropertyValueFactory<>("email"));
-		tableUtentiData = stampaLista(servizio.visualizzaTutti());
-
-		tableClienti.setItems(tableUtentiData);
-		tableClienti.getColumns().addAll(nomeCol, cognomeCol, emailCol);
-
 	}
 
 	public void goScene(String scene) {
